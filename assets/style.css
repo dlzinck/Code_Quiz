@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono&display=swap');
+
+/*Universal style*/
+* {
+    background-color: darkturquoise;
+    color: #050505;
+    font-family: 'Red Hat Mono';
+}
+
+/*Style for website*/
+/*All header styling*/
+header {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#head {
+    font-size: 200%;
+    font-weight: 900;
+    display: block;
+    text-align: center;
+    text-decoration: underline overline #050505;
+}
