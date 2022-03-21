@@ -1,6 +1,7 @@
 //Global
 let startQuiz = document.getElementById("#startBtn");
-let quizPannel = document.getElementById(".questions");
+startBtn.addEventListener('click', startQuiz)
+let questionContainer = document.getElementById("questions-container");
 let questions = document.getElementById("#questions");
 let choiceA = document.getElementById("#A");
 let choiceB = document.getElementById("#B");
@@ -9,6 +10,13 @@ let choiceD = document.getElementById("#D");
 let timer = document.getElementById("#timer");
 let scores = document.getElementById("#scores");
 let scoreTracker = document.getElementById("#scoreTracker");
+let previousQuestion = questions.length -1;
+let time = 0;
+let questionTime = 10;
+let score = 0;
+let timeLeft = 100;
+let randomQuestion;
+let currentQuestion;
 
 //Questions for quiz
 let quizQuestions = [
@@ -49,14 +57,79 @@ let quizQuestions = [
     },
 ];
 
-//Variables for timer
-let previousQuestion = questions.length -1;
-let time = 0;
-let questionTime = 10
-let score = 0
+function startQuiz() {
+    questionContainer.classList.remove('hide');
+    revealQuestions();
+}
 
+function revealQuestions() {
+    let quest = questions[currentQuestion];
+    questions.innerHTML = "<p>" + quest.question + "</p>";
+    choiceA.innerHTML = quest.choiceA;
+    choiceB.innerHTML = quest.choiceB;
+    choiceC.innerHTML = quest.choiceC;
+    choiceD.innerHTML = quest.choiceD;
+}
 
+startQuiz.addEventListener("click", beginQuiz);
 
+function beginQuiz() {
+    startQuiz.style.display = "none";
+    revealQuestions();
+    quizPannel.style.display = "block";
+    revealScores();
+    setTimer();
+}
+
+//Reveals the scores
+function revealScores() {
+    for (let questIndex = 0; questIndex <= previousQuestion; questIndex++) {
+        scores.innerHTML += "<div class='progress' id='+ questIndex +'></div>";
+    }
+}
+
+//Reveals timer
+
+function setTimer () {
+    let timerInterval = setInterval(function() {
+        secondsLeft--;
+        timer.textContent = secondsLeft + "Seconds Left!";
+        if (secondsLeft === 1) {
+            timer.textContent = secondsLeft + "Second Left!";
+        }
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            revealScores();
+        }
+    }, 1000);
+}
+
+function checkAnswer() {
+    if (userInput = quizQuestions[currentQuestion].correct) {
+        score++;
+        answerCorrect();
+    }
+    else {
+        answerWrong();
+    }
+    time = 0;
+    if (currentQuestion < previousQuestion) {
+        currentQuestion++;
+        revealQuestions();
+    }
+    else {
+        clearInterval(timeClock);
+        revealScores();
+    }
+}
+
+function answerCorrect() {}
+
+function answerWrong() {}
+
+function revealScores() {
+    scoreTracker.style.display = "block";
+}
 
 
 
