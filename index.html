@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-
     <header>
         <h1 id="head">¿Code Quiz?</h1>
     </header>
@@ -24,7 +23,7 @@
     <main class="gamePannel">
         <h3 id="timer">TIMER HERE</h3>
 
-        <div class="questions">
+        <div class="questions" style="display: none;">
             <p id="question">QUESTIONS HERE</p>
             <p class="choices" id="A" onclick="checkAnser('A')">aA</p>
             <p class="choices" id="B" onclick="checkAnser('B')">bB</p>
@@ -35,10 +34,10 @@
 
     <footer>
         <button id="scores">High Scores!</button>
+        <div id="scoreTracker" style="display: none"></div>
     </footer>
     
     <script src="./assets/script.js"></script>
-
 </body>
 
 </html>
