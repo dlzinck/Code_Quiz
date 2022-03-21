@@ -32,6 +32,7 @@ header {
     align-items: center;
     flex-direction: column;
     padding: 10px 300px;
+    text-align: center;
 }
 #startBtn {
     border: none;
@@ -46,4 +47,38 @@ header {
     color: #050505
 }
 /*Timer and question placeholder styling*/
-#timer {}
+.gamePannel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#timer {
+    font-size: 200%;
+    border: 2px double #050505;
+    border-radius: 25%;
+}
+.questions {
+    padding: 150px 300px;
+    border: 2px solid #050505
+}
+/*Footer and scores styling*/
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#scores {
+    margin-top: 50px;
+    border: none;
+    background-color: darkturquoise;
+    cursor: pointer;
+    font-size: 200%;
+    font-weight: 900;
+    color: darkturquoise;
+    text-shadow: 2px 0 0 #050505, -2px 0 0 #050505, 0 2px 0 #050505, 0 -2px 0 #050505, 1px 1px #050505, -1px -1px 0 #050505, 1px -1px 0 #050505, -1px 1px 0 #050505;
+}
+#scores:hover {
+    color: #050505
+}
