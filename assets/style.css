@@ -12,15 +12,38 @@
 header {
     width: 100%;
     display: flex;
-    position: fixed;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 #head {
-    font-size: 200%;
+    font-size: 250%;
     font-weight: 900;
     display: block;
     text-align: center;
     text-decoration: underline overline #050505;
 }
+
+/*All timer and question styling*/
+.startSection {
+    font-size: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 300px;
+}
+#startBtn {
+    border: none;
+    background-color: darkturquoise;
+    cursor: pointer;
+    font-size: 175%;
+    font-weight: 900;
+    color: darkturquoise;
+    text-shadow: 2px 0 0 #050505, -2px 0 0 #050505, 0 2px 0 #050505, 0 -2px 0 #050505, 1px 1px #050505, -1px -1px 0 #050505, 1px -1px 0 #050505, -1px 1px 0 #050505;
+}
+#startBtn:hover {
+    color: #050505
+}
+/*Timer and question placeholder styling*/
+#timer {}
