@@ -1,135 +1,103 @@
 //Global
-let startQuiz = document.getElementById("#startBtn");
+let startBtn = document.getElementById("startBtn");
 startBtn.addEventListener('click', startQuiz)
 let questionContainer = document.getElementById("questions-container");
-let questions = document.getElementById("#questions");
-let choiceA = document.getElementById("#A");
-let choiceB = document.getElementById("#B");
-let choiceC = document.getElementById("#C");
-let choiceD = document.getElementById("#D");
-let timer = document.getElementById("#timer");
-let scores = document.getElementById("#scores");
-let scoreTracker = document.getElementById("#scoreTracker");
-let previousQuestion = questions.length -1;
+
+let questions = document.getElementById("questions");
+let answers = document.getElementById("answers");
+
+let timer = document.getElementById("timer");
 let time = 0;
 let questionTime = 10;
 let score = 0;
 let timeLeft = 100;
-let randomQuestion;
-let currentQuestion;
+let randomQuestion = 0;
+let currentQuestion = 0;
 
 //Questions for quiz
 let quizQuestions = [
     {
         question: "If there is a mistkae, problem, or bug in the computer program, there is a what?",
         choices: [
-            {text: 'aA', correct: true },
-            {text: '10', correct: false}
+            {text: 'Bug', correct: true },
+            {text: 'Loop', correct: false},
+            {text: 'Error', correct: false},
+            {text: 'Issue', correct: false},
+
         ]
     },
     {
         question: "Which one of these lines are of an array?",
         choices: [
-            {text: 'cC', correct: true },
-            {text: '10', correct: false}
+            {text: '123456789', correct: false},
+            {text: '{The dogs name is Scarlett!}', correct: false},
+            {text: '[Dave, Sandy, Johny, Bill]', correct: true },
+            {text: '"123456789"', correct: false},
+
         ]
     },
     {
         question: "Who was the console.log() function designed to help?",
         answers: [
-            {text: 'aA', correct: true },
-            {text: '10', correct: false}
+            {text: 'Chefs', correct: false},
+            {text: 'Policemen', correct: false},
+            {text: 'Firefighters', correct: false},
+            {text: 'Programmers', correct: true },
         ]
     },
     {
         question: "What can you make as programmer?",
         answers: [
-            {text: 'dD', correct: true },
-            {text: '10', correct: false}
+            {text: 'Games', correct: false},
+            {text: 'Apps', correct: false},
+            {text: 'Websites', correct: false},
+            {text: 'All the above', correct: true },
         ]
     },
     {
         quesstion: "What does HTML stand for?",
         answers: [
-            {text: 'cC', correct: true },
-            {text: '10', correct: false}
+            {text: 'Hyper Text Markup Language', correct: true },
+            {text: 'Hyperlinks Text Marking Language', correct: false},
+            {text: 'Hyperlinks Text Markup Language', correct: false},
+            {text: 'Hyper Tag Markup Language', correct: false},
         ]
     }
 ];
 
 function startQuiz() {
-
-    questionContainer.classList.remove('hide');
-    revealQuestions();
+    randomQuestion = quizQuestions.sort(() => Math,random() - .5)
+    currentQuestion = 0
+    revealNextQuestions();
 }
 
-function revealQuestions() {
-    let quest = questions[currentQuestion];
-    questions.innerHTML = "<p>" + quest.question + "</p>";
-    choiceA.innerHTML = quest.choiceA;
-    choiceB.innerHTML = quest.choiceB;
-    choiceC.innerHTML = quest.choiceC;
-    choiceD.innerHTML = quest.choiceD;
+function revealNextQuestions() {
+    resetPannel();
+    showQuestion(randomQuestion[currentQuestion])
 }
 
-startQuiz.addEventListener("click", beginQuiz);
-
-function beginQuiz() {
-    startQuiz.style.display = "none";
-    revealQuestions();
-    quizPannel.style.display = "block";
-    revealScores();
-    setTimer();
-}
-
-//Reveals the scores
-function revealScores() {
-    for (let questIndex = 0; questIndex <= previousQuestion; questIndex++) {
-        scores.innerHTML += "<div class='progress' id='+ questIndex +'></div>";
-    }
-}
-
-//Reveals timer
-
-function setTimer () {
-    let timerInterval = setInterval(function() {
-        secondsLeft--;
-        timer.textContent = secondsLeft + "Seconds Left!";
-        if (secondsLeft === 1) {
-            timer.textContent = secondsLeft + "Second Left!";
+function showQuestion(question) {
+    questions.innerText = question.question
+    quizQuestions.answers.forEach(answer => {
+        let choices = document.getElementById("choices")
+        choices.innerText = answer.text
+        choices.classList.add('button')
+        if (answer.correct) {
+            choices.dataset.correct = answer.correct
         }
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            revealScores();
-        }
-    }, 1000);
+        choices.addEventListener('click', selectChoice)
+        answers.appendChild(button)
+    })
 }
 
-function checkAnswer() {
-    if (userInput = quizQuestions[currentQuestion].correct) {
-        score++;
-        answerCorrect();
-    }
-    else {
-        answerWrong();
-    }
-    time = 0;
-    if (currentQuestion < previousQuestion) {
-        currentQuestion++;
-        revealQuestions();
-    }
-    else {
-        clearInterval(timeClock);
-        revealScores();
-    }
+function selectChoice(e) {
+
 }
 
-function answerCorrect() {}
-
-function answerWrong() {}
-
-function revealScores() {
-    scoreTracker.style.display = "block";
+function resetPannel() {
+    while (choices.removeChild(choices.firstChild)) {
+        answers.removeChild(answers.firstChild)
+    }
 }
 
 
@@ -138,12 +106,19 @@ function revealScores() {
 
 
 
-
-
-
-
-
-
+// function setTimer () {
+//     let timerInterval = setInterval(function() {
+//         secondsLeft--;
+//         timer.textContent = secondsLeft + "Seconds Left!";
+//         if (secondsLeft === 1) {
+//             timer.textContent = secondsLeft + "Second Left!";
+//         }
+//         if (secondsLeft === 0) {
+//             clearInterval(timerInterval);
+//             revealScores();
+//         }
+//     }, 1000);
+// }
 
 
 //QUESTIONS AND ANSWERS
