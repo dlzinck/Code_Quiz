@@ -22,42 +22,43 @@ let currentQuestion;
 let quizQuestions = [
     {
         question: "If there is a mistkae, problem, or bug in the computer program, there is a what?",
-        choiceA: "Correct!",
-        choiceB: "Wrong!",
-        choiceC: "Wrong!",
-        choiceD: "Wrong!",
+        choices: [
+            {text: 'aA', correct: true },
+            {text: '10', correct: false}
+        ]
     },
     {
         question: "Which one of these lines are of an array?",
-        choiceA: "Wrong!",
-        choiceB: "Wrong!", 
-        choiceC: "Correct!",
-        choiceD: "Wrong!",
+        choices: [
+            {text: 'cC', correct: true },
+            {text: '10', correct: false}
+        ]
     },
     {
         question: "Who was the console.log() function designed to help?",
-        choiceA: "Correct!",
-        choiceB: "Wrong!",
-        choiceC: "Wrong!",
-        choiceD: "Wrong!",
+        answers: [
+            {text: 'aA', correct: true },
+            {text: '10', correct: false}
+        ]
     },
     {
         question: "What can you make as programmer?",
-        choiceA: "Wrong!",
-        choiceB: "Wrong!",
-        choiceC: "Wrong!",
-        choiceD: "Correct!",
+        answers: [
+            {text: 'dD', correct: true },
+            {text: '10', correct: false}
+        ]
     },
     {
         quesstion: "What does HTML stand for?",
-        choiceA: "Wrong!",
-        choiceB: "Wrong!",
-        choiceC: "Correct!",
-        choiceD: "Wrong!",
-    },
+        answers: [
+            {text: 'cC', correct: true },
+            {text: '10', correct: false}
+        ]
+    }
 ];
 
 function startQuiz() {
+
     questionContainer.classList.remove('hide');
     revealQuestions();
 }
