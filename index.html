@@ -1,45 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Quiz</title>
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
-    <header>
-        <h1 id="head">¿Code Quiz?</h1>
-    </header>
 
-    <div class="startSection">
-        <p id="intro">
-            Welcome to the Code Quiz! Try to answer these code realted questions as fast as you can! You have a timer of 100 seconds but you didn't think it would be that easy right? 
-            Everytime you get a question wrong you will be penalized 10 seconds! Click start to begin!
-        </p>
-        <button id="startBtn">Start</button>
-    </div>
-
-    <main class="gamePannel">
-        <h3 id="timer"></h3>
-
-        <div id="questions-container">
-            <p id="question">QUESTIONS HERE</p>
-            <div id="answers">
-                <button class="choices" id="A">Answer-1</button>
-                <button class="choices" id="B">Answer-2</button>
-                <button class="choices" id="C">Answer-3</button>
-                <button class="choices" id="D"></button>
+  <h1 id="title">¿Code Quiz?</h1>
+  
+  <div class="start">
+    <p>Welcome to the Code Quiz! Try to answer these code realted questions as fast as you can! 
+        You have a timer of 100 seconds but you didn't think it would be that easy right? 
+        Everytime you get a question wrong you will be penalized 10 seconds! Click start to begin!
+    </p>
+    <button id="startButton" type="button" class="button">Start Quiz</button>
+  </div>
+   
+  <main class="main">
+      <div id="gamePanel" class="hide">
+          <h2 class="timer">TIMER: </h2>
+          <div id="card1">
+        
+            <header>
+                <h3 id="question"></h3>
+            </header>
+            
+            <div id="multipleChoice">
+                <div class="questionLine">
+                    <label id="A"></label>
+                </div>
+            
+                <div class="questionLine">
+                    <label id="B"></label>
+                </div>
+                <div class="questionLine">
+                    <label id="C"></label>
+                </div>
+                <div class="questionLine">
+                    <label  id="D"></label>            
+                </div>
             </div>
         </div>
-    </main>
+        <footer id="feedback1">Can you answer all the questions in time?</footer>
+    </div>
 
-    <footer>
-        <button id="scores">High Scores!</button>
-        <div id="scoreTracker"></div>
-    </footer>
+    <button id="highScores" type="button" class="button">View High Scores</button>
     
-    <script src="./assets/script.js"></script>
-</body>
+    <div id="inputForm" class="hide" >    
+      <h2>You scored <span id="scoreButton" class="button"></span> points!</h2>
+        <form>
+          <label for="initialsBox">Enter Your Initials Here:</label>
+          <input id="initialsBox" type="text" maxlength="3">
+          <input id="submitButton" type="submit" class="button">
+        </form>
 
+    </div>
+    <div id="scoreCard" class="hide">
+      <div id="card2">
+          <header>
+              <h1>Top 10 High Scores</h1>
+            </header>
+            <div id="highScores" ></div>
+        </div>
+      <button id="backButton" type="button" class="button">Go Back</button>
+      <button id="clearButton" type="button" class="button">Clear High Score</button>
+    </div>
+</main>
+
+<script src="./assets/script.js"></script>
+</body>
 </html>

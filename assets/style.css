@@ -2,89 +2,102 @@
 
 /*Universal style*/
 * {
+    box-sizing: border-box;
     background-color: darkturquoise;
     color: #050505;
     font-family: 'Red Hat Mono';
+    margin: 0;
+    padding: 0;
 }
 
-/*Style for website*/
-/*All header styling*/
-header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+body {
+    background-color: rgb(1, 92, 94);
+    margin: auto;
+    padding: auto;
+    text-align: center;
 }
-#head {
-    font-size: 200%;
+  
+footer {
+    font-size: 24px;
+    padding: 10px;
+}
+  
+h1 {
+    font-size: 40px;
+    font-weight: 500;
     font-weight: 900;
     display: block;
     text-align: center;
+}
+  
+h2 {
+    font-weight: 600;
+    margin: 8px;
+}
+
+h3 {
+    font-weight: 500;
+}
+
+label {
+    font-size: 24px;
+    margin:auto;
+    padding: 8px;
+}
+  
+p {
+    font-size: 24px;
+    margin: 8px;
+}
+        
+.hide {
+    display: none;
+}
+
+.questionLine {
+    display: flex;
+    justify-content: space-around;
+}
+
+.questionLine label:hover {
+    cursor: pointer;
+    border: 2px solid #050505;
+}
+
+#title {
     text-decoration: underline overline #050505;
 }
-
-/*All timer and question styling*/
-.startSection {
-    font-size: 125%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px 300px;
+  
+#card1, #card2 {
+    background-color: darkturquoise);
+    margin: auto;
+    padding: auto;
+    width: 60%;
+}
+  
+#initialsBox {
+    background-color: darkturquoise);
+    border-color: #050505;
+    height: 48px;
+    font-size: 36px;
     text-align: center;
+    width: 144px;
 }
-#startBtn {
+  
+.button {
     border: none;
     background-color: darkturquoise;
     cursor: pointer;
-    font-size: 150%;
+    font-size: 48px;
     font-weight: 900;
     color: darkturquoise;
     text-shadow: 2px 0 0 #050505, -2px 0 0 #050505, 0 2px 0 #050505, 0 -2px 0 #050505, 1px 1px #050505, -1px -1px 0 #050505, 1px -1px 0 #050505, -1px 1px 0 #050505;
 }
-#startBtn:hover {
+  
+.button:hover {
     color: #050505
 }
-/*Timer and question placeholder styling*/
-.gamePannel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-#timer {
-    font-size: 150%;
-    border: 2px double #050505;
-    border-radius: 25%;
-}
-.questions {
-    display: flex;
-    flex-direction: column;
-    padding: 50px 250px;
-    border: 2px solid #050505
-}
-.choices{
-    align-items: left;
-}
-
-/*Footer and scores styling*/
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-#scores {
-    margin-top: 50px;
-    border: none;
-    background-color: darkturquoise;
-    cursor: pointer;
-    font-size: 200%;
-    font-weight: 900;
-    color: darkturquoise;
-    text-shadow: 2px 0 0 #050505, -2px 0 0 #050505, 0 2px 0 #050505, 0 -2px 0 #050505, 1px 1px #050505, -1px -1px 0 #050505, 1px -1px 0 #050505, -1px 1px 0 #050505;
-}
-#scores:hover {
-    color: #050505
+  
+#multipleChoice {
+    justify-content: space-around;
 }
